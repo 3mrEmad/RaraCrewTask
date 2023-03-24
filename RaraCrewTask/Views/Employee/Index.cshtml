@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+
+</head>
+<body>
+<a asp-controller="Employee" asp-action="DispalyChart" style="margin-bottom:5PX" class="btn btn-primary">Go To Chart</a>
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Time Worked</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in ViewBag.res)
+        {
+            <tr>
+                <td>@employee.EmployeeName</td>
+                <td class="timeWorked">@employee.TimeWorked</td>
+            </tr>
+        }
+</table>
+</body>
+</html>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $("#myTable tr").each(function () {
+        var self = $(this);
+        var col_1_value = self.find("td:eq(1)").text().trim();
+        
+            if (col_1_value < 100) {
+                this.style.backgroundColor = 'green';
+            }
+        
+       
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
